@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jehan Jaleel Carr - CV</title>
+    <style>
+        :root {
+            --sidebar-color: #1a2a3a;
+            --accent-color: #3498db;
+            --bg-color: #f0f2f5;
+            --text-dark: #2d3436;
+            --text-light: #ecf0f1;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-container {
+            width: 100%;
+            max-width: 850px;
+            background: white;
+            display: flex;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 1100px;
+        }
+
+        /* SIDEBAR */
+        aside {
+            width: 280px;
+            background-color: var(--sidebar-color);
+            color: var(--text-light);
+            padding: 40px 25px;
+        }
+
+        .profile-initials {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .side-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .info-p { font-size: 0.85rem; margin-bottom: 15px; line-height: 1.4; }
+        .info-p b { display: block; color: white; }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            padding: 50px;
+            color: var(--text-dark);
+        }
+
+        .header h1 { margin: 0; font-size: 2.6rem; color: var(--sidebar-color); }
+        .header p { margin: 5px 0; font-size: 1.2rem; color: var(--accent-color); font-weight: bold; }
+        .header .student-id { font-size: 0.9rem; color: #636e72; font-weight: normal; margin-top: 4px; }
+
+        .section { margin-top: 35px; }
+        .section-h2 {
+            font-size: 1.2rem;
+            color: var(--sidebar-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .entry { margin-bottom: 22px; }
+        .entry-row { display: flex; justify-content: space-between; font-weight: bold; }
+        .sub-text { color: #636e72; font-size: 0.95rem; margin-top: 2px; }
+        .date { color: #95a5a6; font-size: 0.9rem; }
+        
+        ul { padding-left: 20px; margin-top: 8px; }
+        li { margin-bottom: 5px; font-size: 0.92rem; line-height: 1.4; }
+
+        /* PRINT BUTTON */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media print {
+            .print-btn { display: none; }
+            body { background: white; }
+            .cv-container { margin: 0; box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <aside>
+            <div class="profile-initials">JC</div>
+            
+            <div class="side-title">Contact</div>
+            <div class="info-p"><b>Email</b> indianboysvg@gmail.com</div>
+            <div class="info-p"><b>Phone</b> 0911785675</div>
+            <div class="info-p"><b>Location</b> South District, Taichung City</div>
+
+            <div class="side-title">Technical Skills</div>
+            <div class="info-p"><b>Programming</b> Python</div>
+            <div class="info-p"><b>Fields</b> ICT Foundations, Data Entry</div>
+
+            <div class="side-title">Languages</div>
+            <div class="info-p"><b>English</b> Native Speaker</div>
+            <div class="info-p"><b>Mandarin</b> 1 Year Intensive Study</div>
+        </aside>
+
+        <main>
+            <div class="header">
+                <h1>Jehan Jaleel Carr</h1>
+                <p>CSIE Student | Asia University</p>
+                <div class="student-id">Student ID: 114021143</div>
+            </div>
+
+            <div class="section">
+                <div class="section-h2">Education</div>
+                
+                <!-- University -->
+                <div class="entry">
+                    <div class="entry-row">
+                        <span>Asia University, Taiwan</span>
+                        <span class="date">2025 — Present</span>
+                    </div>
+                    <div class="sub-text">B.S. in Computer Science and Information Engineering</div>
+                    <ul>
+                        <li>Current First-Year Student at Asia University in Taichung.</li>
+                    </ul>
+                </div>
+
+                <!-- College -->
+                <div class="entry">
+                    <div class="entry-row">
+                        <span>SVG Community College (SVGCC)</span>
+                        <span class="date">2020 — 2022</span>
+                    </div>
+                    <div class="sub-text">Associate Degree in Information and Communication Technology</div>
+                    <ul>
+                        <li>Studied core ICT modules and systems management.</li>
+                    </ul>
+                </div>
+
+                <!-- High School -->
+                <div class="entry">
+                    <div class="entry-row">
+                        <span>Bequia Seventh Day Adventist Secondary</span>
+                        <span class="date">2015 — 2020</span>
+                    </div>
+                    <div class="sub-text">High School Diploma — <b>Valedictorian</b></div>
+                    <ul>
+                        <li>Graduated at the top of the class with academic excellence.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-h2">Personal Projects</div>
+                <div class="entry">
+                    <div class="entry-row">
+                        <span>Expense Manager Application</span>
+                        <span class="date">Python</span>
+                    </div>
+                    <ul>
+                        <li>Developed a Python console application to track daily financial transactions.</li>
+                        <li>Implemented data logic to manage and summarize user spending habits.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-h2">Professional Objective</div>
+                <p style="line-height: 1.6; font-size: 0.95rem;">
+                    Highly academic CSIE student at Asia University with a strong foundation in ICT and Python. 
+                    A former Valedictorian and Associate Degree holder from St. Vincent and the Grenadines, 
+                    now dedicated to advancing software engineering skills in Taiwan. Native English speaker 
+                    with ongoing Mandarin language integration.
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Download PDF</button>
+
+</body>
+</html> 
