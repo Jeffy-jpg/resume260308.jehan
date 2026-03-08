@@ -112,11 +112,61 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        @media print {
-            .print-btn { display: none; }
-            body { background: white; }
-            .cv-container { margin: 0; box-shadow: none; width: 100%; }
-        }
+        @media (max-width: 768px) {
+    body {
+        display: block; /* Remove flex centering */
+    }
+
+    .cv-container {
+        flex-direction: column; /* Stack Sidebar over Main */
+        margin: 0;
+        max-width: 100%;
+        box-shadow: none;
+    }
+
+    aside {
+        width: 100%; /* Take full width */
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .profile-initials {
+        margin: 0 auto 20px; /* Keep initials centered */
+    }
+
+    .side-title {
+        text-align: left; /* Keep titles aligned left for readability */
+    }
+
+    .info-p {
+        text-align: left;
+    }
+
+    main {
+        padding: 30px 20px; /* Reduce padding for smaller screens */
+    }
+
+    .header h1 {
+        font-size: 2rem; /* Shrink title slightly */
+    }
+
+    .entry-row {
+        flex-direction: column; /* Stack date under Company/School name */
+        gap: 2px;
+    }
+
+    .date {
+        margin-bottom: 5px;
+    }
+}
+
+/* KEEP YOUR EXISTING PRINT CSS */
+@media print {
+    .print-btn { display: none; }
+    body { background: white; }
+    .cv-container { margin: 0; box-shadow: none; width: 100%; display: flex; flex-direction: row; }
+    aside { width: 280px; }
+}
     </style>
 </head>
 <body>
@@ -215,4 +265,4 @@
     <button class="print-btn" onclick="window.print()">Download PDF</button>
 
 </body>
-</html> 
+</html>
