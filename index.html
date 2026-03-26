@@ -3,280 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jehan Jaleel Carr - CV</title>
+    <title>Jehan Jaleel Carr | CV</title>
+    <!-- Modern Typography & Icons -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
         :root {
-            --sidebar-color: #1a2a3a;
-            --accent-color: #3498db;
-            --bg-color: #f0f2f5;
-            --text-dark: #2d3436;
-            --text-light: #ecf0f1;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --white: #ffffff;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             margin: 0;
-            display: flex;
-            justify-content: center;
+            padding: 40px 20px;
         }
 
-        .cv-container {
-            width: 100%;
-            max-width: 850px;
-            background: white;
-            display: flex;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-height: 1100px;
+        /* Container & Grid */
+        .resume-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 1150px; /* Forces a full-page feel */
         }
 
-        /* SIDEBAR */
-        aside {
-            width: 280px;
-            background-color: var(--sidebar-color);
-            color: var(--text-light);
-            padding: 40px 25px;
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 35px; /* Increased padding */
         }
 
-        .profile-initials {
-            width: 80px;
-            height: 80px;
-            background: var(--accent-color);
+        .profile-img-container {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            margin: 0 auto 30px;
+            overflow: hidden;
+            border: 4px solid var(--accent);
+            margin: 0 auto 40px;
+            background: #fff;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 15%; /* Targeted crop for your face */
+        }
+
+        .sidebar h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin: 45px 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .contact-item { 
+            font-size: 0.9rem; 
+            margin-bottom: 20px; /* More space between items */
+            display: flex; 
+            flex-direction: column; 
+            gap: 4px; 
+        }
+        .contact-item b { color: white; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .contact-item span { color: #cbd5e1; display: flex; align-items: center; gap: 10px; }
+        .contact-item i { color: var(--accent); width: 16px; }
+
+        .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.15);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content { padding: 70px 60px; } /* Deep padding for professional look */
+        
+        header h1 { 
+            font-size: 3rem; 
+            margin: 0; 
+            color: var(--primary); 
+            letter-spacing: -0.03em; 
+            font-weight: 800;
+        }
+        header p { 
+            font-size: 1.3rem; 
+            color: var(--accent); 
+            margin: 10px 0; 
+            font-weight: 600; 
+        }
+        .student-id { color: var(--text-light); font-size: 0.95rem; margin-top: 5px; }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 55px 0 25px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
+        }
+        .section-title::after { 
+            content: ""; 
+            flex: 1; 
+            height: 2px; 
+            background: #f1f5f9; 
+            margin-left: 20px; 
         }
 
-        .side-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            border-bottom: 1px solid #34495e;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            margin-bottom: 15px;
+        .entry { margin-bottom: 40px; } /* More space between schools/projects */
+        .entry-header { 
+            display: flex; 
+            justify-content: space-between; 
+            font-weight: 700; 
+            color: var(--primary); 
+            font-size: 1.1rem;
         }
-
-        .info-p { font-size: 0.85rem; margin-bottom: 15px; line-height: 1.4; }
-        .info-p b { display: block; color: white; }
-
-        /* MAIN CONTENT */
-        main {
-            flex: 1;
-            padding: 50px;
-            color: var(--text-dark);
+        .entry-sub { 
+            color: var(--accent); 
+            font-size: 1rem; 
+            margin: 5px 0 12px; 
+            font-weight: 500;
         }
-
-        .header h1 { margin: 0; font-size: 2.6rem; color: var(--sidebar-color); }
-        .header p { margin: 5px 0; font-size: 1.2rem; color: var(--accent-color); font-weight: bold; }
-        .header .student-id { font-size: 0.9rem; color: #636e72; font-weight: normal; margin-top: 4px; }
-
-        .section { margin-top: 35px; }
-        .section-h2 {
-            font-size: 1.2rem;
-            color: var(--sidebar-color);
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .entry { margin-bottom: 22px; }
-        .entry-row { display: flex; justify-content: space-between; font-weight: bold; }
-        .sub-text { color: #636e72; font-size: 0.95rem; margin-top: 2px; }
-        .date { color: #95a5a6; font-size: 0.9rem; }
+        .entry-date { color: var(--text-light); font-size: 0.9rem; font-weight: 600; }
         
-        ul { padding-left: 20px; margin-top: 8px; }
-        li { margin-bottom: 5px; font-size: 0.92rem; line-height: 1.4; }
+        ul { padding-left: 20px; margin-top: 10px; }
+        li { font-size: 1rem; margin-bottom: 8px; line-height: 1.6; }
 
-        /* PRINT BUTTON */
-        .print-btn {
+        /* Floating Download Button */
+        .download-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--accent-color);
+            background: var(--accent);
             color: white;
-            border: none;
             padding: 15px 25px;
             border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .download-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(59, 130, 246, 0.5); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .resume-wrapper { grid-template-columns: 1fr; margin: 0; border-radius: 0; }
+            .sidebar { padding: 50px 25px; text-align: center; }
+            .contact-item { align-items: center; }
+            .skill-list { justify-content: center; }
+            .main-content { padding: 50px 30px; }
+            header h1 { font-size: 2.2rem; }
+            .entry-header { flex-direction: column; gap: 5px; }
         }
 
-            .profile-photo-container {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 30px;
-    border-radius: 50%;
-    overflow: hidden; /* This makes the image a circle */
-    border: 3px solid var(--accent-color);
-    background: #fff;
-}
-
-.profile-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Prevents the photo from stretching */
-    display: block;
-}
-
-        @media (max-width: 768px) {
-    body {
-        display: block; /* Remove flex centering */
-    }
-
-    .cv-container {
-        flex-direction: column; /* Stack Sidebar over Main */
-        margin: 0;
-        max-width: 100%;
-        box-shadow: none;
-    }
-
-    aside {
-        width: 100%; /* Take full width */
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .side-title {
-        text-align: left; /* Keep titles aligned left for readability */
-    }
-
-    .info-p {
-        text-align: left;
-    }
-
-    main {
-        padding: 30px 20px; /* Reduce padding for smaller screens */
-    }
-
-    .header h1 {
-        font-size: 2rem; /* Shrink title slightly */
-    }
-
-    .entry-row {
-        flex-direction: column; /* Stack date under Company/School name */
-        gap: 2px;
-    }
-
-    .date {
-        margin-bottom: 5px;
-    }
-}
-
-/* KEEP YOUR EXISTING PRINT CSS */
-@media print {
-    .print-btn { display: none; }
-    body { background: white; }
-    .cv-container { margin: 0; box-shadow: none; width: 100%; display: flex; flex-direction: row; }
-    aside { width: 280px; }
-}
+        /* Print Settings */
+        @media print {
+            .download-btn { display: none; }
+            body { padding: 0; background: white; }
+            .resume-wrapper { box-shadow: none; border-radius: 0; grid-template-columns: 300px 1fr; min-height: 0; }
+            .sidebar { -webkit-print-color-adjust: exact; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="cv-container">
-        <aside>
-            <div class="profile-photo-container">
-                <img src="your-photo.jpeg" alt="Jehan Jaleel Carr" class="profile-photo">
-            </div>            
-            <div class="side-title">Contact</div>
-            <div class="info-p"><b>Email</b> indianboysvg@gmail.com</div>
-            <div class="info-p"><b>Phone</b> 0911785675</div>
-            <div class="info-p"><b>Location</b> South District, Taichung City</div>
+<a href="javascript:window.print()" class="download-btn">
+    <i class="fas fa-file-pdf"></i> Download CV
+</a>
 
-            <div class="side-title">Technical Skills</div>
-            <div class="info-p"><b>Programming</b> Python</div>
-            <div class="info-p"><b>Fields</b> ICT Foundations, Data Entry</div>
+<div class="resume-wrapper">
+    <aside class="sidebar">
+        <div class="profile-img-container">
+            <img src="your-photo.jpeg" alt="Jehan Jaleel Carr" class="profile-img">
+        </div>
 
-            <div class="side-title">Languages</div>
-            <div class="info-p"><b>English</b> Native Speaker</div>
-            <div class="info-p"><b>Mandarin</b> 1 Year Intensive Study</div>
-        </aside>
+        <h2>Contact Info</h2>
+        <div class="contact-item">
+            <b>Email Address</b>
+            <span><i class="fas fa-envelope"></i> indianboysvg@gmail.com</span>
+        </div>
+        <div class="contact-item">
+            <b>Phone Number</b>
+            <span><i class="fas fa-phone"></i> 0911785675</span>
+        </div>
+        <div class="contact-item">
+            <b>Addrress</b>
+            <span><i class="fas fa-location-dot"></i> Taichung City, Taiwan</span>
+        </div>
+        <div class="contact-item">
+            <b>University ID</b>
+            <span><i class="fas fa-id-card"></i> 114021143</span>
+        </div>
 
-        <main>
-            <div class="header">
-                <h1>Jehan Jaleel Carr</h1>
-                <p>CSIE Student | Asia University</p>
-                <div class="student-id">Student ID: 114021143</div>
+        <h2>Technical Skills</h2>
+        <div class="skill-list">
+            <span class="skill-tag">Python Development</span>
+            <span class="skill-tag">ICT Foundations</span>
+            <span class="skill-tag">Data Entry</span>
+            <span class="skill-tag">Systems Management</span>
+            <span class="skill-tag">Technical Logic</span>
+        </div>
+
+        <h2>Languages</h2>
+        <div class="contact-item">
+            <b>English</b>
+            <span>Native Speaker</span>
+        </div>
+        <div class="contact-item">
+            <b>Mandarin Chinese</b>
+            <span>1 Year Intensive Study</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <h1>Jehan Jaleel Carr</h1>
+            <p>Computer Science & Information Engineering Student</p>
+            <div class="student-id">Asia University | Taichung, Taiwan</div>
+        </header>
+
+        <div class="section-title">Education Background</div>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span>Asia University</span>
+                <span class="entry-date">2025 — Present</span>
             </div>
+            <div class="entry-sub">Bachelor of Science in Computer Science & Information Engineering</div>
+            <ul>
+                <li>Current First-Year Student focusing on software engineering and foundational computing systems.</li>
+                <li>Engaging in core modules covering programming logic and data structures.</li>
+            </ul>
+        </div>
 
-            <div class="section">
-                <div class="section-h2">Education</div>
-                
-                <!-- University -->
-                <div class="entry">
-                    <div class="entry-row">
-                        <span>Asia University, Taiwan</span>
-                        <span class="date">2025 — Present</span>
-                    </div>
-                    <div class="sub-text">B.S. in Computer Science and Information Engineering</div>
-                    <ul>
-                        <li>Current First-Year Student at Asia University in Taichung.</li>
-                    </ul>
-                </div>
-
-                <!-- College -->
-                <div class="entry">
-                    <div class="entry-row">
-                        <span>SVG Community College (SVGCC)</span>
-                        <span class="date">2020 — 2022</span>
-                    </div>
-                    <div class="sub-text">Associate Degree in Information and Communication Technology</div>
-                    <ul>
-                        <li>Studied core ICT modules and systems management.</li>
-                    </ul>
-                </div>
-
-                <!-- High School -->
-                <div class="entry">
-                    <div class="entry-row">
-                        <span>Bequia Seventh Day Adventist Secondary</span>
-                        <span class="date">2015 — 2020</span>
-                    </div>
-                    <div class="sub-text">High School Diploma — <b>Valedictorian</b></div>
-                    <ul>
-                        <li>Graduated at the top of the class with academic excellence.</li>
-                    </ul>
-                </div>
+        <div class="entry">
+            <div class="entry-header">
+                <span>SVG Community College (SVGCC)</span>
+                <span class="entry-date">2020 — 2022</span>
             </div>
+            <div class="entry-sub">Associate Degree in Information and Communication Technology</div>
+            <ul>
+                <li>Advanced study of ICT infrastructure, digital systems, and information management.</li>
+            </ul>
+        </div>
 
-            <div class="section">
-                <div class="section-h2">Personal Projects</div>
-                <div class="entry">
-                    <div class="entry-row">
-                        <span>Expense Manager Application</span>
-                        <span class="date">Python</span>
-                    </div>
-                    <ul>
-                        <li>Developed a Python console application to track daily financial transactions.</li>
-                        <li>Implemented data logic to manage and summarize user spending habits.</li>
-                    </ul>
-                </div>
+        <div class="entry">
+            <div class="entry-header">
+                <span>Bequia Seventh Day Adventist Secondary</span>
+                <span class="entry-date">2015 — 2020</span>
             </div>
+            <div class="entry-sub">High School Diploma — <b>Valedictorian</b></div>
+            <ul>
+                <li>Graduated at the top of the class with honors in academic excellence and leadership.</li>
+            </ul>
+        </div>
 
-            <div class="section">
-                <div class="section-h2">Professional Objective</div>
-                <p style="line-height: 1.6; font-size: 0.95rem;">
-                    Highly academic CSIE student at Asia University with a strong foundation in ICT and Python. 
-                    A former Valedictorian and Associate Degree holder from St. Vincent and the Grenadines, 
-                    now dedicated to advancing software engineering skills in Taiwan. Native English speaker 
-                    with ongoing Mandarin language integration.
-                </p>
+        <div class="section-title">Technical Projects</div>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span>Basic Expense Manager Application</span>
+                <span class="entry-date">Python</span>
             </div>
-        </main>
-    </div>
-
-    <button class="print-btn" onclick="window.print()">Download PDF</button>
+            <div class="entry-sub">Lead Developer</div>
+            <ul>
+                <li>Architected a finance tracking tool using Python.</li>
+                <li>Developed automated logic for categorizing expenditures.</li>
+            </ul>
+        </div>
+    </main>
+</div>
 
 </body>
 </html>
