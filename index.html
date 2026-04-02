@@ -6,7 +6,8 @@
     <title>Jehan Jaleel Carr | CV</title>
     <!-- Modern Typography & Icons -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
             --primary: #0f172a;
@@ -172,6 +173,32 @@
         }
         .download-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(59, 130, 246, 0.5); }
 
+       .mute-btn {
+    position: fixed;
+    bottom: 100px; /* Sits 70px above the Download button */
+    right: 30px;
+    background: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 101;
+}
+
+.mute-btn:hover {
+    transform: scale(1.1);
+    background: var(--accent);
+}
+
+
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             body { padding: 0; }
@@ -185,15 +212,87 @@
         }
 
         /* Print Settings */
-        @media print {
-            .download-btn { display: none; }
-            body { padding: 0; background: white; }
-            .resume-wrapper { box-shadow: none; border-radius: 0; grid-template-columns: 300px 1fr; min-height: 0; }
-            .sidebar { -webkit-print-color-adjust: exact; }
+
+@media print {
+    .download-btn, 
+    .audio-controls-wrapper, 
+    .mute-btn { 
+        display: none !important; 
+    }
+    body { padding: 0; background: white; }
+    .resume-wrapper { box-shadow: none; border-radius: 0; grid-template-columns: 300px 1fr; min-height: 0; }
+    .sidebar { -webkit-print-color-adjust: exact; }
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bg-music");
+    const muteBtn = document.getElementById("mute-btn");
+    const muteIcon = document.getElementById("mute-icon");
+    const maxVolume = 0.5; // Target volume level
+
+    function updateUI() {
+        if (music.muted || music.volume === 0) {
+            muteIcon.className = "fa-solid fa-volume-xmark";
+            muteBtn.style.background = "var(--primary)";
+        } else {
+            muteIcon.className = "fa-solid fa-volume-high";
+            muteBtn.style.background = "var(--accent)";
         }
-    </style>
+    }
+
+    // Function to handle the gradual fade-in
+    function startFadeIn() {
+        if (!music.muted && music.volume > 0) return; 
+        
+        music.muted = false;
+        music.volume = 0;
+        music.play();
+
+        let fade = setInterval(() => {
+            if (music.volume < maxVolume) {
+                music.volume = Math.min(music.volume + 0.05, maxVolume);
+                updateUI();
+            } else {
+                clearInterval(fade);
+            }
+        }, 100); // Fades in over ~1 second
+        
+        // Remove the global click listener once music starts
+        window.removeEventListener('click', startFadeIn);
+    }
+
+    // Manual Toggle Button
+    muteBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // Stops the global click from triggering startFadeIn again
+        if (music.muted) {
+            startFadeIn();
+        } else {
+            music.muted = true;
+            updateUI();
+        }
+    });
+
+    // Start music on the very first click anywhere on the page
+    window.addEventListener('click', startFadeIn);
+});
+</script>
 </head>
 <body>
+
+<!-- Note: 'muted' must be here for autoplay to be allowed to start in the background -->
+<audio id="bg-music" loop autoplay muted playsinline>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Mute Button (Positioned above Download CV) -->
+<button id="mute-btn" class="mute-btn">
+    <i id="mute-icon" class="fa-solid fa-volume-xmark"></i>
+</button>
+
 
 <a href="javascript:window.print()" class="download-btn">
     <i class="fas fa-file-pdf"></i> Download CV
